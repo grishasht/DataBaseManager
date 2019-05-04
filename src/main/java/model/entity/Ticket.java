@@ -4,11 +4,16 @@ import java.util.Objects;
 
 public class Ticket {
     private String filmName;
+    private String personName;
     private Integer ageCategory;
     private String seats;
 
     public void setFilmName(String filmName) {
         this.filmName = filmName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 
     public void setAgeCategory(Integer ageCategory) {
@@ -31,10 +36,15 @@ public class Ticket {
         return seats;
     }
 
+    public String getPersonName() {
+        return personName;
+    }
+
     @Override
     public String toString() {
         return "Ticket\n" +
-                "filmName: " + filmName + '\'' +
+                "person name: " + personName +
+                "filmName: " + filmName +
                 ", ageCategory: " + ageCategory +
                 ", seats: " + seats + '\n';
     }
@@ -45,12 +55,13 @@ public class Ticket {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
         return Objects.equals(filmName, ticket.filmName) &&
+                Objects.equals(personName, ticket.personName) &&
                 Objects.equals(ageCategory, ticket.ageCategory) &&
                 Objects.equals(seats, ticket.seats);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmName, ageCategory, seats);
+        return Objects.hash(filmName, personName, ageCategory, seats);
     }
 }
