@@ -6,7 +6,12 @@ public class Ticket {
     private String filmName;
     private String personName;
     private Integer ageCategory;
-    private String seats;
+
+    public Ticket(String filmName, String personName, Integer ageCategory) {
+        this.filmName = filmName;
+        this.personName = personName;
+        this.ageCategory = ageCategory;
+    }
 
     public void setFilmName(String filmName) {
         this.filmName = filmName;
@@ -20,20 +25,12 @@ public class Ticket {
         this.ageCategory = ageCategory;
     }
 
-    public void setSeats(String seats) {
-        this.seats = seats;
-    }
-
     public String getFilmName() {
         return filmName;
     }
 
     public Integer getAgeCategory() {
         return ageCategory;
-    }
-
-    public String getSeats() {
-        return seats;
     }
 
     public String getPersonName() {
@@ -43,10 +40,9 @@ public class Ticket {
     @Override
     public String toString() {
         return "Ticket\n" +
-                "person name: " + personName +
-                "filmName: " + filmName +
-                ", ageCategory: " + ageCategory +
-                ", seats: " + seats + '\n';
+                "OWNER: " + personName +
+                "  FILM: " + filmName +
+                "  AGE CATEGORY: " + ageCategory + '\n';
     }
 
     @Override
@@ -56,12 +52,11 @@ public class Ticket {
         Ticket ticket = (Ticket) o;
         return Objects.equals(filmName, ticket.filmName) &&
                 Objects.equals(personName, ticket.personName) &&
-                Objects.equals(ageCategory, ticket.ageCategory) &&
-                Objects.equals(seats, ticket.seats);
+                Objects.equals(ageCategory, ticket.ageCategory);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmName, personName, ageCategory, seats);
+        return Objects.hash(filmName, personName, ageCategory);
     }
 }

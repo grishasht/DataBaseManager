@@ -27,7 +27,7 @@ public class ActorDBTool implements ActorDao {
     }
 
     @Override
-    public void create(Actor entity) {
+    public void insert(Actor entity) {
 
     }
 

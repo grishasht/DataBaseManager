@@ -27,7 +27,7 @@ public class TicketDBTool implements TicketDao {
     }
 
     @Override
-    public void create(Ticket entity) {
+    public void insert(Ticket entity) {
 
     }
 

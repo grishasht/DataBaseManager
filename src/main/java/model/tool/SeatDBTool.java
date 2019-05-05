@@ -27,7 +27,7 @@ public class SeatDBTool implements SeatDao {
     }
 
     @Override
-    public void create(Seat entity) {
+    public void insert(Seat entity) {
 
     }
 

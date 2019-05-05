@@ -8,6 +8,7 @@ import java.util.List;
 public class FilmDBTool implements FilmDao {
     @Override
     public List<Film> getAll() {
+
         return null;
     }
 
@@ -27,7 +28,7 @@ public class FilmDBTool implements FilmDao {
     }
 
     @Override
-    public void create(Film entity) {
+    public void insert(Film entity) {
 
     }
 

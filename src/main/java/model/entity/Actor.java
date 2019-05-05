@@ -4,15 +4,18 @@ import java.util.Objects;
 
 public class Actor{
     private String name;
-    private String company;
     private String film;
+
+    public Actor() {
+    }
+
+    public Actor(String name, String film) {
+        this.name = name;
+        this.film = film;
+    }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
     }
 
     public void setFilm(String film) {
@@ -23,20 +26,15 @@ public class Actor{
         return name;
     }
 
-    public String getCompany() {
-        return company;
-    }
-
     public String getFilm() {
         return film;
     }
 
     @Override
     public String toString() {
-        return "Actor: \n" +
-                "name: " + name  +
-                ", company: " + company +
-                ", film: " + film + '\n';
+        return "Actor \n" +
+                "NAME: " + name +
+                "  FILM: " + film + '\n';
     }
 
     @Override
@@ -45,12 +43,11 @@ public class Actor{
         if (o == null || getClass() != o.getClass()) return false;
         Actor actor = (Actor) o;
         return Objects.equals(name, actor.name) &&
-                Objects.equals(company, actor.company) &&
                 Objects.equals(film, actor.film);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, company, film);
+        return Objects.hash(name, film);
     }
 }

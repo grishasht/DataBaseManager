@@ -6,6 +6,11 @@ public class Seat {
     private Integer seatNumber;
     private String ownerName;
 
+    public Seat(Integer seatNumber, String ownerName) {
+        this.seatNumber = seatNumber;
+        this.ownerName = ownerName;
+    }
+
     public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
     }
@@ -25,8 +30,8 @@ public class Seat {
     @Override
     public String toString() {
         return "Seat\n" +
-                "seatNumber: " + seatNumber +
-                ", ownerName: " + ownerName + '\n';
+                "SEAT: " + seatNumber +
+                "  OWNER: " + ownerName + '\n';
     }
 
     @Override

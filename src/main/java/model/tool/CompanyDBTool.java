@@ -27,7 +27,7 @@ public class CompanyDBTool implements CompanyDao {
     }
 
     @Override
-    public void create(Company entity) {
+    public void insert(Company entity) {
 
     }
 

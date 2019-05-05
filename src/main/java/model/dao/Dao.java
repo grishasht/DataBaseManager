@@ -12,7 +12,7 @@ public interface Dao<E, K> extends AutoCloseable{
 
     void delete(K id);
 
-    void create(E entity);
+    void insert(E entity);
 
     @Override
     void close();
