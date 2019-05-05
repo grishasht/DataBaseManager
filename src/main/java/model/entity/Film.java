@@ -5,12 +5,18 @@ import java.util.Objects;
 public class Film {
     private String name;
     private String companyName;
-    private Integer duration;
+    private Integer release;
+    private Boolean ar; // 3d effect (augmented reality)
 
-    public Film(String name, String companyName, Integer duration) {
+    public Film(String name, String companyName, Integer release, Boolean ar) {
         this.name = name;
         this.companyName = companyName;
-        this.duration = duration;
+        this.release = release;
+        this.ar = ar;
+    }
+
+    public void setAr(Boolean ar) {
+        this.ar = ar;
     }
 
     public void setCompanyName(String companyName) {
@@ -21,8 +27,12 @@ public class Film {
         this.name = name;
     }
 
-    public void setDuration(Integer duration) {
-        this.duration = duration;
+    public void setRelease(Integer release) {
+        this.release = release;
+    }
+
+    public Boolean getAr() {
+        return ar;
     }
 
     public String getCompanyName() {
@@ -33,16 +43,17 @@ public class Film {
         return name;
     }
 
-    public Integer getDuration() {
-        return duration;
+    public Integer getRelease() {
+        return release;
     }
 
     @Override
     public String toString() {
         return "Film \n" +
                 "NAME: " + name +
-                "  DURATION: " + duration +
-                "  COMPANY: " + companyName + '\n';
+                "  DURATION: " + release +
+                "  COMPANY: " + companyName +
+                "  3D: " + ar + '\n';
     }
 
     @Override
@@ -51,7 +62,8 @@ public class Film {
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
         return Objects.equals(name, film.name) &&
-                Objects.equals(duration, film.duration) &&
-                Objects.equals(companyName, film.companyName);
+                Objects.equals(release, film.release) &&
+                Objects.equals(companyName, film.companyName) &&
+                Objects.equals(ar, film.ar);
     }
 }

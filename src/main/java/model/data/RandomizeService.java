@@ -41,6 +41,10 @@ public class RandomizeService {
         return year;
     }
 
+    public static Boolean randomizeAr(){
+        return random.nextBoolean();
+    }
+
     public static String randomizeName(){
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'

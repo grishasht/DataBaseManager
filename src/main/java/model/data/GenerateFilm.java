@@ -7,6 +7,7 @@ public class GenerateFilm implements Generator<Film> {
     public Film generate(String name) {
         return new Film(RandomizeService.randomizeName(),
                 name,
-                RandomizeService.randomizeDuration());
+                RandomizeService.randomizeYear(),
+                RandomizeService.randomizeAr());
     }
 }

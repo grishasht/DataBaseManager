@@ -7,28 +7,23 @@ import java.util.List;
 
 public class TicketDBTool implements TicketDao {
     @Override
-    public List<Ticket> getAll() {
+    public List<Ticket> readAll() {
         return null;
     }
 
     @Override
-    public Ticket update(Ticket entity) {
+    public void delete(String deleteBy, String key) {
+
+    }
+
+    @Override
+    public void create(Ticket entity) {
+
+    }
+
+    @Override
+    public List<Ticket> read(String searchBy, String key) {
         return null;
-    }
-
-    @Override
-    public Ticket getEntityById(String id) {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) {
-
-    }
-
-    @Override
-    public void insert(Ticket entity) {
-
     }
 
     @Override

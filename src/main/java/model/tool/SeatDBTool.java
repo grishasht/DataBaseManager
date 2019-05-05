@@ -7,28 +7,23 @@ import java.util.List;
 
 public class SeatDBTool implements SeatDao {
     @Override
-    public List<Seat> getAll() {
+    public List<Seat> readAll() {
         return null;
     }
 
     @Override
-    public Seat update(Seat entity) {
+    public void delete(String deleteBy, Integer key) {
+
+    }
+
+    @Override
+    public void create(Seat entity) {
+
+    }
+
+    @Override
+    public List<Seat> read(String searchBy, Integer key) {
         return null;
-    }
-
-    @Override
-    public Seat getEntityById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public void delete(Integer id) {
-
-    }
-
-    @Override
-    public void insert(Seat entity) {
-
     }
 
     @Override

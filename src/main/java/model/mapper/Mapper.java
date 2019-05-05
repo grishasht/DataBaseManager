@@ -1,4 +1,7 @@
 package model.mapper;
 
-public interface Mapper {
+import java.sql.ResultSet;
+
+public interface Mapper<T> {
+    T getFromResultSet(ResultSet resultSet, int... setIndexes);
 }
