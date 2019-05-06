@@ -3,8 +3,10 @@ package runner;
 import model.data.*;
 import model.entity.Actor;
 import model.entity.Film;
+import model.entity.Seat;
 import model.tool.ActorDBTool;
 import model.tool.FilmDBTool;
+import model.tool.SeatDBTool;
 
 import java.sql.Connection;
 
@@ -39,23 +41,40 @@ public class Testing {
 //        actorDBTool.update("trjxxefmrewxeledgroa", "name", new Actor("Pedro", "Godfather"));
 //        actorDBTool.readAll().forEach(System.out::println);
 
-        FilmDBTool filmDBTool = new FilmDBTool(connection);
-       // filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name1"));
-       // filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name2"));
-       // filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name3"));
-        filmDBTool.read("company_name","name1").forEach(System.out::println);
+//        FilmDBTool filmDBTool = new FilmDBTool(connection);
+//        filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name1"));
+//        filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name2"));
+//        filmDBTool.create(factory.generateIssue(new GenerateFilm(), "name3"));
+//        filmDBTool.read("company_name","name1").forEach(System.out::println);
+//        System.out.println("------------------------");
+//        filmDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        filmDBTool.delete("film_name", "gfeudqpvojkrzuwvqtmf");
+//        filmDBTool.delete("film_name", "jloxciqfettcbgpvztll");
+//        filmDBTool.delete("film_name", "zrduijvdthkmhwjhcoej");
+//        filmDBTool.delete("film_name", "dysgetopqpwujxsjyobe");
+//        filmDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        filmDBTool.update("gfeudqpvojkrzuwvqtmf", 1923, new Film(
+//                "Godfather", "WarnerBS", 1972, false));
+//        filmDBTool.readAll().forEach(System.out::println);
+
+        SeatDBTool seatDBTool = new SeatDBTool(connection);
+//        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name1"));
+//        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name2"));
+//        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name3"));
+        seatDBTool.read("owner_name","name1").forEach(System.out::println);
         System.out.println("------------------------");
-        //filmDBTool.readAll().forEach(System.out::println);
-        //System.out.println("------------------------");
-        filmDBTool.delete("film_name", "gfeudqpvojkrzuwvqtmf");
-        filmDBTool.delete("film_name", "jloxciqfettcbgpvztll");
-        filmDBTool.delete("film_name", "zrduijvdthkmhwjhcoej");
-        filmDBTool.delete("film_name", "dysgetopqpwujxsjyobe");
-        filmDBTool.readAll().forEach(System.out::println);
+        seatDBTool.readAll().forEach(System.out::println);
         System.out.println("------------------------");
-        filmDBTool.update("gfeudqpvojkrzuwvqtmf", 1923, new Film(
-                "Godfather", "WarnerBS", 1972, false));
-        filmDBTool.readAll().forEach(System.out::println);
+        seatDBTool.delete("owner_name", "name1");
+        seatDBTool.readAll().forEach(System.out::println);
+        System.out.println("------------------------");
+        seatDBTool.update("name2", 26,
+                new Seat(42, "WarnerBS"));
+        seatDBTool.readAll().forEach(System.out::println);
+
+
     }
 
 }
