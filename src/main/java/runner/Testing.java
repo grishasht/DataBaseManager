@@ -2,9 +2,11 @@ package runner;
 
 import model.data.*;
 import model.entity.Actor;
+import model.entity.Company;
 import model.entity.Film;
 import model.entity.Seat;
 import model.tool.ActorDBTool;
+import model.tool.CompanyDBTool;
 import model.tool.FilmDBTool;
 import model.tool.SeatDBTool;
 
@@ -59,20 +61,35 @@ public class Testing {
 //                "Godfather", "WarnerBS", 1972, false));
 //        filmDBTool.readAll().forEach(System.out::println);
 
-        SeatDBTool seatDBTool = new SeatDBTool(connection);
+//        SeatDBTool seatDBTool = new SeatDBTool(connection);
 //        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name1"));
 //        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name2"));
 //        seatDBTool.create(factory.generateIssue(new GenerateSeat(), "name3"));
-        seatDBTool.read("owner_name","name1").forEach(System.out::println);
+//        seatDBTool.read("owner_name","name1").forEach(System.out::println);
+//        System.out.println("------------------------");
+//        seatDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        seatDBTool.delete("owner_name", "name1");
+//        seatDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        seatDBTool.update("name2", 26,
+//                new Seat(42, "WarnerBS"));
+//        seatDBTool.readAll().forEach(System.out::println);
+
+        CompanyDBTool companyDBTool = new CompanyDBTool(connection);
+//        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name1"));
+//        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name2"));
+//        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name3"));
+        companyDBTool.read("company_name","nooukrujdutxmdctfcqh").forEach(System.out::println);
         System.out.println("------------------------");
-        seatDBTool.readAll().forEach(System.out::println);
+        companyDBTool.readAll().forEach(System.out::println);
         System.out.println("------------------------");
-        seatDBTool.delete("owner_name", "name1");
-        seatDBTool.readAll().forEach(System.out::println);
+        companyDBTool.delete("company_name", "nooukrujdutxmdctfcqh");
+        companyDBTool.readAll().forEach(System.out::println);
         System.out.println("------------------------");
-        seatDBTool.update("name2", 26,
-                new Seat(42, "WarnerBS"));
-        seatDBTool.readAll().forEach(System.out::println);
+        companyDBTool.update("ftaxvkigohzlxdgsecfu", 1934,
+                new Company("WarnerBS", "USA", 1926));
+        companyDBTool.readAll().forEach(System.out::println);
 
 
     }
