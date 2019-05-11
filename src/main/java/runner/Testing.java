@@ -1,14 +1,8 @@
 package runner;
 
 import model.data.*;
-import model.entity.Actor;
-import model.entity.Company;
-import model.entity.Film;
-import model.entity.Seat;
-import model.tool.ActorDBTool;
-import model.tool.CompanyDBTool;
-import model.tool.FilmDBTool;
-import model.tool.SeatDBTool;
+import model.entity.*;
+import model.tool.*;
 
 import java.sql.Connection;
 
@@ -76,21 +70,35 @@ public class Testing {
 //                new Seat(42, "WarnerBS"));
 //        seatDBTool.readAll().forEach(System.out::println);
 
-        CompanyDBTool companyDBTool = new CompanyDBTool(connection);
+//        CompanyDBTool companyDBTool = new CompanyDBTool(connection);
 //        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name1"));
 //        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name2"));
 //        companyDBTool.create(factory.generateIssue(new GenerateCompany(), "name3"));
-        companyDBTool.read("company_name","nooukrujdutxmdctfcqh").forEach(System.out::println);
-        System.out.println("------------------------");
-        companyDBTool.readAll().forEach(System.out::println);
-        System.out.println("------------------------");
-        companyDBTool.delete("company_name", "nooukrujdutxmdctfcqh");
-        companyDBTool.readAll().forEach(System.out::println);
-        System.out.println("------------------------");
-        companyDBTool.update("ftaxvkigohzlxdgsecfu", 1934,
-                new Company("WarnerBS", "USA", 1926));
-        companyDBTool.readAll().forEach(System.out::println);
+//        companyDBTool.read("company_name","nooukrujdutxmdctfcqh").forEach(System.out::println);
+//        System.out.println("------------------------");
+//        companyDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        companyDBTool.delete("company_name", "nooukrujdutxmdctfcqh");
+//        companyDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+//        companyDBTool.update("ftaxvkigohzlxdgsecfu", 1934,
+//                new Company("WarnerBS", "USA", 1926));
+//        companyDBTool.readAll().forEach(System.out::println);
 
+        TicketDBTool ticketDBTool = new TicketDBTool(connection);
+//        ticketDBTool.create(factory.generateIssue(new GenerateTicket(), "name1"));
+//        ticketDBTool.create(factory.generateIssue(new GenerateTicket(), "name2"));
+//        ticketDBTool.create(factory.generateIssue(new GenerateTicket(), "name3"));
+        ticketDBTool.read("age_category","6").forEach(System.out::println);
+        System.out.println("------------------------");
+//        ticketDBTool.readAll().forEach(System.out::println);
+//        System.out.println("------------------------");
+        ticketDBTool.delete("owner_name", "olsiiikmpvlwfzxvktsh");
+        ticketDBTool.readAll().forEach(System.out::println);
+        System.out.println("------------------------");
+        ticketDBTool.update("wzhmireqvssfjdtnmjug",
+                new Ticket("George", "Godfather", 18));
+        ticketDBTool.readAll().forEach(System.out::println);
 
     }
 

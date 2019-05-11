@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class Ticket {
     private String filmName;
-    private String personName;
+    private String ownerName;
     private Integer ageCategory;
 
-    public Ticket(String filmName, String personName, Integer ageCategory) {
+    public Ticket(String filmName, String ownerName, Integer ageCategory) {
         this.filmName = filmName;
-        this.personName = personName;
+        this.ownerName = ownerName;
         this.ageCategory = ageCategory;
     }
 
@@ -17,8 +17,8 @@ public class Ticket {
         this.filmName = filmName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
     public void setAgeCategory(Integer ageCategory) {
@@ -33,14 +33,14 @@ public class Ticket {
         return ageCategory;
     }
 
-    public String getPersonName() {
-        return personName;
+    public String getOwnerName() {
+        return ownerName;
     }
 
     @Override
     public String toString() {
         return "Ticket\n" +
-                "OWNER: " + personName +
+                "OWNER: " + ownerName +
                 "  FILM: " + filmName +
                 "  AGE CATEGORY: " + ageCategory + '\n';
     }
@@ -51,12 +51,12 @@ public class Ticket {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
         return Objects.equals(filmName, ticket.filmName) &&
-                Objects.equals(personName, ticket.personName) &&
+                Objects.equals(ownerName, ticket.ownerName) &&
                 Objects.equals(ageCategory, ticket.ageCategory);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmName, personName, ageCategory);
+        return Objects.hash(filmName, ownerName, ageCategory);
     }
 }
