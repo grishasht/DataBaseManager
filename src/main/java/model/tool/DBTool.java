@@ -1,18 +1,17 @@
 package model.tool;
 
+import model.setConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
-public class DBTool {
-    protected Connection connection;
-
+public class DBTool extends setConnection {
     public DBTool(Connection connection) {
-        this.connection = connection;
+        super(connection);
     }
 
-    protected void closePrepStat(PreparedStatement preparedStatement){
+    protected void closePrepStat(PreparedStatement preparedStatement) {
         try {
             if (preparedStatement != null)
                 preparedStatement.close();

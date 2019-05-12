@@ -1,12 +1,32 @@
 package model.service;
 
+import model.dao.CompanyDao;
 import model.entity.Company;
+import model.setConnection;
+import model.tool.CompanyDBTool;
 
+import java.sql.Connection;
 import java.util.List;
 
-public class CompanyDaoService implements DaoService<Company> {
+public class CompanyDaoService extends setConnection implements DaoService<Company> {
+    public CompanyDaoService(Connection connection) {
+        super(connection);
+    }
+
+    CompanyDao companyDao = new CompanyDBTool(connection);
+
     @Override
     public void create() {
+
+    }
+
+    @Override
+    public void createRandomized() {
+
+    }
+
+    @Override
+    public void createOneRandomized(String key) {
 
     }
 
@@ -21,12 +41,10 @@ public class CompanyDaoService implements DaoService<Company> {
     }
 
     @Override
-    public Boolean update() {
-        return null;
+    public void update() {
     }
 
     @Override
-    public Boolean delete() {
-        return null;
+    public void delete() {
     }
 }

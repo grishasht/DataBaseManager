@@ -1,12 +1,32 @@
 package model.service;
 
+import model.dao.TicketDao;
 import model.entity.Ticket;
+import model.setConnection;
+import model.tool.TicketDBTool;
 
+import java.sql.Connection;
 import java.util.List;
 
-public class TicketDaoService implements DaoService<Ticket>{
+public class TicketDaoService extends setConnection implements DaoService<Ticket>{
+    public TicketDaoService(Connection connection) {
+        super(connection);
+    }
+
+    TicketDao ticketDao = new TicketDBTool(connection);
+
     @Override
     public void create() {
+
+    }
+
+    @Override
+    public void createRandomized() {
+
+    }
+
+    @Override
+    public void createOneRandomized(String key) {
 
     }
 
@@ -21,12 +41,10 @@ public class TicketDaoService implements DaoService<Ticket>{
     }
 
     @Override
-    public Boolean update() {
-        return null;
+    public void update() {
     }
 
     @Override
-    public Boolean delete() {
-        return null;
+    public void delete() {
     }
 }

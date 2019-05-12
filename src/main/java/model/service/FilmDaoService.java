@@ -1,12 +1,32 @@
 package model.service;
 
+import model.dao.FilmDao;
 import model.entity.Film;
+import model.setConnection;
+import model.tool.FilmDBTool;
 
+import java.sql.Connection;
 import java.util.List;
 
-public class FilmDaoService implements DaoService<Film>{
+public class FilmDaoService extends setConnection implements DaoService<Film>{
+    public FilmDaoService(Connection connection) {
+        super(connection);
+    }
+
+    FilmDao filmDao = new FilmDBTool(connection);
+
     @Override
     public void create() {
+
+    }
+
+    @Override
+    public void createRandomized() {
+
+    }
+
+    @Override
+    public void createOneRandomized(String key) {
 
     }
 
@@ -21,12 +41,12 @@ public class FilmDaoService implements DaoService<Film>{
     }
 
     @Override
-    public Boolean update() {
+    public void update() {
         return null;
     }
 
     @Override
-    public Boolean delete() {
+    public void delete() {
         return null;
     }
 }

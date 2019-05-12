@@ -8,7 +8,7 @@ import java.sql.Connection;
 
 public class Testing {
 
-    public static void test(){
+    public static void test() {
         Connection connection = runner.Connection.setConnection();
         Factory factory = new Factory();
 
@@ -16,7 +16,7 @@ public class Testing {
         actorDBTool.create(factory.generateIssue(new GenerateActor(), "ztsyfefacifzblfmtweh"));
         actorDBTool.create(factory.generateIssue(new GenerateActor(), "jzierqgnlqlyrexvdzck"));
         actorDBTool.create(factory.generateIssue(new GenerateActor(), "zyuwgptuebjlxukplhpu"));
-        actorDBTool.read("film_name","name").forEach(System.out::println);
+        actorDBTool.read("film_name", "name").forEach(System.out::println);
         System.out.println("------------------------");
         actorDBTool.readAll().forEach(System.out::println);
         System.out.println("------------------------");
@@ -48,7 +48,7 @@ public class Testing {
         seatDBTool.create(factory.generateIssue(new GenerateSeat(), "xmtbncrchnfzsmnfbnrt"));
         seatDBTool.create(factory.generateIssue(new GenerateSeat(), "ruwejckcsanzlqrjiisn"));
         seatDBTool.create(factory.generateIssue(new GenerateSeat(), "ziqdpdibbmpiwqsikado"));
-        seatDBTool.read("owner_name","name1").forEach(System.out::println);
+        seatDBTool.read("owner_name", "name1").forEach(System.out::println);
         System.out.println("------------------------");
         seatDBTool.readAll().forEach(System.out::println);
         System.out.println("------------------------");
