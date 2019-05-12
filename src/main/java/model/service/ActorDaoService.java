@@ -2,6 +2,8 @@ package model.service;
 
 import model.dao.ActorDao;
 import model.dao.FilmDao;
+import model.data.GenerateActor;
+import model.data.Generator;
 import model.data.RandomizeService;
 import model.entity.Actor;
 import model.entity.Film;
@@ -21,6 +23,7 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
 
     Scanner scanner = new Scanner(System.in);
     ActorDao actorDao = new ActorDBTool(connection);
+    Generator<Actor> actorGenerator = new GenerateActor();
 
     @Override
     public void create() {
@@ -53,7 +56,8 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
 
         while(actorsNumber == 0) actorsNumber = random.nextInt(5);
         while(i < actorsNumber){
-            actorDao.create(new Actor(RandomizeService.randomizeName(), key));
+            actorDao.create(actorGenerator.generate(key));
+            //actorDao.create(new Actor(RandomizeService.randomizeName(), key));
             i++;
         }
     }
