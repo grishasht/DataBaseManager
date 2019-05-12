@@ -4,7 +4,6 @@ import model.dao.ActorDao;
 import model.dao.FilmDao;
 import model.data.GenerateActor;
 import model.data.Generator;
-import model.data.RandomizeService;
 import model.entity.Actor;
 import model.entity.Film;
 import model.setConnection;
@@ -29,8 +28,10 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
     public void create() {
         String actorName, filmName;
 
-        System.out.printf("Input actor name: %s\n", actorName = scanner.nextLine());
-        System.out.printf("Input actors film name: %s\n", filmName = scanner.nextLine());
+        System.out.print("Input actor name: ");
+        System.out.printf("%s\n", actorName = scanner.nextLine());
+        System.out.print("Input actors film name: ");
+        System.out.printf("%s\n", filmName = scanner.nextLine());
 
         actorDao.create(new Actor(actorName, filmName));
     }
@@ -72,8 +73,11 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
     public List<Actor> read() {
         String parameter, key;
 
-        System.out.printf("Enter parameter by which you want to find: %s\n", parameter = scanner.nextLine());
-        System.out.printf("Enter key by which want to find: %s\n", key = scanner.nextLine());
+        System.out.print("Enter parameter by which you want to find: ");
+        System.out.printf("%s\n", parameter = scanner.nextLine());
+        System.out.print("Enter key by which want to find: ");
+        System.out.printf("%s\n", key = scanner.nextLine());
+
 
         return actorDao.read(parameter, key);
     }
@@ -83,11 +87,15 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         String actorName, filmName;
         String newActorName, newFilmName;
 
-        System.out.printf("Input actor name which update: %s\n", actorName = scanner.nextLine());
-        System.out.printf("Input actors film name which update: %s\n", filmName = scanner.nextLine());
+        System.out.print("Input actor name which update: ");
+        System.out.printf("%s\n", actorName = scanner.nextLine());
+        System.out.print("Input actors film name which update: ");
+        System.out.printf("%s\n", filmName = scanner.nextLine());
 
-        System.out.printf("Input new actor name: %s\n", newActorName = scanner.nextLine());
-        System.out.printf("Input new actors film name: %s\n", newFilmName = scanner.nextLine());
+        System.out.print("Input new actor name: ");
+        System.out.printf("%s\n", newActorName = scanner.nextLine());
+        System.out.print("Input new actors film name: ");
+        System.out.printf("%s\n", newFilmName = scanner.nextLine());
 
         actorDao.update(actorName, filmName, new Actor(newActorName, newFilmName));
     }

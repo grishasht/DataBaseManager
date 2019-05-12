@@ -118,19 +118,19 @@ public class Menu {
         Integer choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                filmDaoService.readALL();
+                filmDaoService.readALL().forEach(System.out::println);
                 break;
             case 2:
-                actorDaoService.readALL();
+                actorDaoService.readALL().forEach(System.out::println);
                 break;
             case 3:
-                companyDaoService.readALL();
+                companyDaoService.readALL().forEach(System.out::println);
                 break;
             case 4:
-                ticketDaoService.readALL();
+                ticketDaoService.readALL().forEach(System.out::println);
                 break;
             case 5:
-                seatDaoService.readALL();
+                seatDaoService.readALL().forEach(System.out::println);
                 break;
             default:
                 throw new IllegalArgumentException("Choose element of range [1; 5]");
@@ -142,19 +142,19 @@ public class Menu {
         Integer choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                filmDaoService.read();
+                filmDaoService.read().forEach(System.out::println);
                 break;
             case 2:
-                actorDaoService.read();
+                actorDaoService.read().forEach(System.out::println);
                 break;
             case 3:
-                companyDaoService.read();
+                companyDaoService.read().forEach(System.out::println);
                 break;
             case 4:
-                ticketDaoService.read();
+                ticketDaoService.read().forEach(System.out::println);
                 break;
             case 5:
-                seatDaoService.read();
+                seatDaoService.read().forEach(System.out::println);
                 break;
             default:
                 throw new IllegalArgumentException("Choose element of range [1; 5]");

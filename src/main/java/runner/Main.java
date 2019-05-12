@@ -2,6 +2,7 @@ package runner;
 public class Main {
 
     public static void main(String[] argv) {
-        Testing.test();
+        //Testing.test();
+        Menu.createMenu();
     }
 }
