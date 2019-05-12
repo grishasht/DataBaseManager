@@ -29,9 +29,9 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         String actorName, filmName;
 
         System.out.print("Input actor name: ");
-        System.out.printf("%s\n", actorName = scanner.nextLine());
+        actorName = scanner.nextLine();
         System.out.print("Input actors film name: ");
-        System.out.printf("%s\n", filmName = scanner.nextLine());
+        filmName = scanner.nextLine();
 
         actorDao.create(new Actor(actorName, filmName));
     }
@@ -74,9 +74,9 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         String parameter, key;
 
         System.out.print("Enter parameter by which you want to find: ");
-        System.out.printf("%s\n", parameter = scanner.nextLine());
+        parameter = scanner.nextLine();
         System.out.print("Enter key by which want to find: ");
-        System.out.printf("%s\n", key = scanner.nextLine());
+        key = scanner.nextLine();
 
 
         return actorDao.read(parameter, key);
@@ -88,14 +88,14 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         String newActorName, newFilmName;
 
         System.out.print("Input actor name which update: ");
-        System.out.printf("%s\n", actorName = scanner.nextLine());
+        actorName = scanner.nextLine();
         System.out.print("Input actors film name which update: ");
-        System.out.printf("%s\n", filmName = scanner.nextLine());
+        filmName = scanner.nextLine();
 
         System.out.print("Input new actor name: ");
-        System.out.printf("%s\n", newActorName = scanner.nextLine());
+        newActorName = scanner.nextLine();
         System.out.print("Input new actors film name: ");
-        System.out.printf("%s\n", newFilmName = scanner.nextLine());
+        newFilmName = scanner.nextLine();
 
         actorDao.update(actorName, filmName, new Actor(newActorName, newFilmName));
     }
@@ -104,8 +104,10 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
     public void delete() {
         String parameter, key;
 
-        System.out.printf("Input parameter used for removing: %s\n", parameter = scanner.nextLine());
-        System.out.printf("Input key which remove: %s\n", key = scanner.nextLine());
+        System.out.print("Enter parameter by which you want to remove: ");
+        parameter = scanner.nextLine();
+        System.out.print("Enter key by which want to remove: ");
+        key = scanner.nextLine();
 
         actorDao.delete(parameter, key);
     }

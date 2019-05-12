@@ -31,13 +31,13 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
         Boolean ar;
 
         System.out.print("Input film name: ");
-        System.out.printf("%s\n", filmName = scanner.nextLine());
+        filmName = scanner.nextLine();
         System.out.print("Input films company name: ");
-        System.out.printf("%s\n", companyName = scanner.nextLine());
+        companyName = scanner.nextLine();
         System.out.print("Input film release year: ");
-        System.out.printf("%s\n", release = scanner.nextInt());
+        release = scanner.nextInt();
         System.out.print("Input if film is 3D: ");
-        System.out.printf("%s\n", ar = scanner.nextBoolean());
+        ar = scanner.nextBoolean();
 
         filmDao.create(new Film(filmName, companyName, release, ar));
     }
@@ -79,9 +79,9 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
         String parameter, key;
 
         System.out.print("Enter parameter by which you want to find: ");
-        System.out.printf("%s\n", parameter = scanner.nextLine());
+        parameter = scanner.nextLine();
         System.out.print("Enter key by which want to find: ");
-        System.out.printf("%s\n", key = scanner.nextLine());
+        key = scanner.nextLine();
 
 
         return filmDao.read(parameter, key);
@@ -95,18 +95,18 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
         Boolean newAR;
 
         System.out.print("Input film name which update: ");
-        System.out.printf("%s\n", filmName = scanner.nextLine());
+        filmName = scanner.nextLine();
         System.out.print("Input films year release which update: ");
-        System.out.printf("%s\n", release = scanner.nextInt());
+        release = scanner.nextInt();
 
         System.out.print("Input new film name: ");
-        System.out.printf("%s\n", newFilmName = scanner.nextLine());
+        newFilmName = scanner.nextLine();
         System.out.print("Input new films company: ");
-        System.out.printf("%s\n", newCompanyName = scanner.nextLine());
+        newCompanyName = scanner.nextLine();
         System.out.print("Input new films release year: ");
-        System.out.printf("%s\n", newRelease = scanner.nextInt());
+        newRelease = scanner.nextInt();
         System.out.print("Input new film 3D: ");
-        System.out.printf("%s\n", newAR = scanner.nextBoolean());
+        newAR = scanner.nextBoolean();
 
         filmDao.update(filmName, release, new Film(newFilmName, newCompanyName, newRelease, newAR));
     }
@@ -115,8 +115,10 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
     public void delete() {
         String parameter, key;
 
-        System.out.printf("Input parameter used for removing: %s\n", parameter = scanner.nextLine());
-        System.out.printf("Input key which remove: %s\n", key = scanner.nextLine());
+        System.out.print("Enter parameter by which you want to remove: ");
+        parameter = scanner.nextLine();
+        System.out.print("Enter key by which want to remove: ");
+        key = scanner.nextLine();
 
         filmDao.delete(parameter, key);
     }
