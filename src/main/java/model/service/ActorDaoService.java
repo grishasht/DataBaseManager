@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class ActorDaoService extends setConnection implements DaoService<Actor>{
+public class ActorDaoService extends setConnection implements DaoService<Actor> {
     public ActorDaoService(Connection connection) {
         super(connection);
     }
@@ -42,11 +42,10 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         String filmName;
 
         List<Film> films = filmDao.readAll();
-        for (Film film: films){
+        for (Film film : films) {
             filmName = film.getName();
             createOneRandomized(filmName);
         }
-
     }
 
     @Override
@@ -55,8 +54,8 @@ public class ActorDaoService extends setConnection implements DaoService<Actor>{
         Integer actorsNumber = 0;
         int i = 0;
 
-        while(actorsNumber == 0) actorsNumber = random.nextInt(5);
-        while(i < actorsNumber){
+        while (actorsNumber == 0) actorsNumber = random.nextInt(5);
+        while (i < actorsNumber) {
             actorDao.create(actorGenerator.generate(key));
             //actorDao.create(new Actor(RandomizeService.randomizeName(), key));
             i++;
