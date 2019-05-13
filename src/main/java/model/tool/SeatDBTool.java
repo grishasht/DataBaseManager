@@ -63,7 +63,7 @@ public class SeatDBTool extends DBTool implements SeatDao {
 
     @Override
     public void create(Seat entity) {
-        String sqlQuery = "INSERT INTO seats VALUES (?, ?)";
+        String sqlQuery = "INSERT INTO seats(seat_num, owner_name) VALUES (?, ?)";
 
         PreparedStatement preparedStatement = null;
 

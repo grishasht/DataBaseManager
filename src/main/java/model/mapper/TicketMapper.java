@@ -11,8 +11,8 @@ public class TicketMapper implements Mapper<Ticket> {
         Ticket ticket = null;
         try {
             ticket = new Ticket(
-                    resultSet.getString(setIndexes[0]),
                     resultSet.getString(setIndexes[1]),
+                    resultSet.getString(setIndexes[0]),
                     resultSet.getInt(setIndexes[2])
             );
         } catch (SQLException e) {

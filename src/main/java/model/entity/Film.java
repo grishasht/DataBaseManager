@@ -51,7 +51,7 @@ public class Film {
     public String toString() {
         return "Film \n" +
                 "NAME: " + name +
-                "  DURATION: " + release +
+                "  RELEASE YEAR: " + release +
                 "  COMPANY: " + companyName +
                 "  3D: " + ar + '\n';
     }

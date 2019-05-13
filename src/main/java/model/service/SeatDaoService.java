@@ -58,7 +58,6 @@ public class SeatDaoService extends setConnection implements DaoService<Seat> {
         while (ticketsNumber == 0) ticketsNumber = random.nextInt(5);
         while (i < ticketsNumber) {
             seatDao.create(seatGenerator.generate(key));
-            //actorDao.create(new Actor(RandomizeService.randomizeName(), key));
             i++;
         }
     }
