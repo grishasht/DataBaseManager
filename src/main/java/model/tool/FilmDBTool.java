@@ -134,6 +134,16 @@ public class FilmDBTool extends DBTool implements FilmDao {
     }
 
     @Override
+    public List<Film> searchPhrase(String phrase) {
+        return null;
+    }
+
+    @Override
+    public List<Film> searchWord(String[] words) {
+        return null;
+    }
+
+    @Override
     public void close() {
         try {
             connection.close();

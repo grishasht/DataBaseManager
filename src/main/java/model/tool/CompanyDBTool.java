@@ -130,6 +130,16 @@ public class CompanyDBTool extends DBTool implements CompanyDao {
     }
 
     @Override
+    public List<Company> searchPhrase(String phrase) {
+        return null;
+    }
+
+    @Override
+    public List<Company> searchWord(String[] words) {
+        return null;
+    }
+
+    @Override
     public void close() {
         try {
             connection.close();

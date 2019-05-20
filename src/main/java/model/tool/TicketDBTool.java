@@ -130,6 +130,16 @@ public class TicketDBTool extends DBTool implements TicketDao {
     }
 
     @Override
+    public List<Ticket> searchPhrase(String phrase) {
+        return null;
+    }
+
+    @Override
+    public List<Ticket> searchWord(String[] words) {
+        return null;
+    }
+
+    @Override
     public void close() {
         try {
             connection.close();

@@ -14,6 +14,11 @@ public interface Dao<E, K> extends AutoCloseable{
 
     List<E> read(String searchBy, K key);
 
+
+    List<E> searchPhrase(String phrase);
+
+    List<E> searchWord(String[] words);
+
     @Override
     void close();
 }

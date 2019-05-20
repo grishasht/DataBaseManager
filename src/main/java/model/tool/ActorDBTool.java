@@ -108,6 +108,16 @@ public class ActorDBTool extends DBTool implements ActorDao {
     }
 
     @Override
+    public List<Actor> searchPhrase(String phrase) {
+        return null;
+    }
+
+    @Override
+    public List<Actor> searchWord(String[] words) {
+        return null;
+    }
+
+    @Override
     public void close() {
         try {
             connection.close();

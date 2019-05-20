@@ -128,6 +128,16 @@ public class SeatDBTool extends DBTool implements SeatDao {
     }
 
     @Override
+    public List<Seat> searchPhrase(String phrase) {
+        return null;
+    }
+
+    @Override
+    public List<Seat> searchWord(String[] words) {
+        return null;
+    }
+
+    @Override
     public void close() {
         try {
             connection.close();
