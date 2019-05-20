@@ -11,6 +11,7 @@ import model.tool.SeatDBTool;
 import model.tool.TicketDBTool;
 
 import java.sql.Connection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -99,6 +100,25 @@ public class SeatDaoService extends setConnection implements DaoService<Seat> {
         newSeatNum = scanner.nextInt();
 
         seatDao.update(ownerName, seatNum, new Seat(newSeatNum, newOwnerName));
+    }
+
+    @Override
+    public List<Seat> search(Integer choice) {
+        List<Seat> seats;
+
+        if (choice == 1){
+            System.out.println("Enter your phase:");
+            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector(owner_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine() + ")");
+        }else if (choice == 2){
+            System.out.println("Enter words:");
+            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector(owner_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+        }else{
+            throw new IllegalArgumentException();
+        }
+
+        return seats;
     }
 
     @Override

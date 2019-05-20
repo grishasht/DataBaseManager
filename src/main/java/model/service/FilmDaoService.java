@@ -112,6 +112,23 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
     }
 
     @Override
+    public List<Film> search(Integer choice) {
+        List<Film> films;
+        if (choice == 1){
+            System.out.println("Enter your phase:");
+            films = filmDao.search("SELECT * FROM films WHERE to_tsvector(film_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine() + ")");
+        }else if (choice == 2){
+            System.out.println("Enter words:");
+            films = filmDao.search("SELECT * FROM films WHERE to_tsvector(film_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+        }else{
+            throw new IllegalArgumentException();
+        }
+        return films;
+    }
+
+    @Override
     public void delete() {
         String parameter, key;
 

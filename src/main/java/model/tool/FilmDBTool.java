@@ -5,6 +5,7 @@ import model.entity.Film;
 import model.mapper.FilmMapper;
 import model.mapper.Mapper;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -134,14 +135,28 @@ public class FilmDBTool extends DBTool implements FilmDao {
     }
 
     @Override
-    public List<Film> searchPhrase(String phrase) {
-        return null;
+    public List<Film> search(String phrase) {
+        List<Film> films = new LinkedList<>();
+        FilmMapper filmMapper = new FilmMapper();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            preparedStatement = connection.prepareStatement(phrase);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                films.add(filmMapper.getFromResultSet(resultSet, 1, 3, 2, 4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closePrepStat(preparedStatement);
+        }
+
+        return films;
     }
 
-    @Override
-    public List<Film> searchWord(String[] words) {
-        return null;
-    }
+
 
     @Override
     public void close() {

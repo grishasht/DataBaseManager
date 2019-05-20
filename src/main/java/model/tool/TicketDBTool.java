@@ -130,13 +130,25 @@ public class TicketDBTool extends DBTool implements TicketDao {
     }
 
     @Override
-    public List<Ticket> searchPhrase(String phrase) {
-        return null;
-    }
+    public List<Ticket> search(String phrase) {
+        List<Ticket> tickets = new LinkedList<>();
+        TicketMapper ticketMapper = new TicketMapper();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
-    @Override
-    public List<Ticket> searchWord(String[] words) {
-        return null;
+        try {
+            preparedStatement = connection.prepareStatement(phrase);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                tickets.add(ticketMapper.getFromResultSet(resultSet, 1, 2, 3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closePrepStat(preparedStatement);
+        }
+
+        return tickets;
     }
 
     @Override

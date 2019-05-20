@@ -128,13 +128,25 @@ public class SeatDBTool extends DBTool implements SeatDao {
     }
 
     @Override
-    public List<Seat> searchPhrase(String phrase) {
-        return null;
-    }
+    public List<Seat> search(String phrase) {
+        List<Seat> seats = new LinkedList<>();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        SeatMapper seatMapper = new SeatMapper();
 
-    @Override
-    public List<Seat> searchWord(String[] words) {
-        return null;
+        try {
+            preparedStatement = connection.prepareStatement(phrase);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                seats.add(seatMapper.getFromResultSet(resultSet, 1, 2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closePrepStat(preparedStatement);
+        }
+
+        return seats;
     }
 
     @Override

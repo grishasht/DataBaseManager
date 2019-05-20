@@ -108,13 +108,24 @@ public class ActorDBTool extends DBTool implements ActorDao {
     }
 
     @Override
-    public List<Actor> searchPhrase(String phrase) {
-        return null;
-    }
+    public List<Actor> search(String phrase) {
+        List<Actor> actors = new LinkedList<>();
+        ActorMapper actorMapper = new ActorMapper();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
 
-    @Override
-    public List<Actor> searchWord(String[] words) {
-        return null;
+        try {
+            preparedStatement = connection.prepareStatement(phrase);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                actors.add(actorMapper.getFromResultSet(resultSet, 1, 2));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closePrepStat(preparedStatement);
+        }
+        return actors;
     }
 
     @Override

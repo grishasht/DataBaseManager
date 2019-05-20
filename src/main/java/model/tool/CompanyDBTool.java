@@ -130,14 +130,27 @@ public class CompanyDBTool extends DBTool implements CompanyDao {
     }
 
     @Override
-    public List<Company> searchPhrase(String phrase) {
-        return null;
+    public List<Company> search(String phrase) {
+        List<Company> companies = new LinkedList<>();
+        CompanyMapper companyMapper = new CompanyMapper();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            preparedStatement = connection.prepareStatement(phrase);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                companies.add(companyMapper.getFromResultSet(resultSet, 1, 2, 3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            closePrepStat(preparedStatement);
+        }
+
+        return companies;
     }
 
-    @Override
-    public List<Company> searchWord(String[] words) {
-        return null;
-    }
 
     @Override
     public void close() {

@@ -13,6 +13,8 @@ public interface DaoService <T> {
 
     List<T> read();
 
+    List<T> search(Integer choice);
+
     void update();
 
     void delete();

@@ -11,6 +11,7 @@ import model.tool.ActorDBTool;
 import model.tool.FilmDBTool;
 
 import java.sql.Connection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -97,6 +98,23 @@ public class ActorDaoService extends setConnection implements DaoService<Actor> 
         newFilmName = scanner.nextLine();
 
         actorDao.update(actorName, filmName, new Actor(newActorName, newFilmName));
+    }
+
+    @Override
+    public List<Actor> search(Integer choice) {
+        List<Actor> actors;
+        if (choice == 1){
+            System.out.println("Enter your phase:");
+            actors = actorDao.search("SELECT * FROM actors WHERE to_tsvector(actor_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine() + ")");
+        }else if (choice == 2){
+            System.out.println("Enter words:");
+            actors = actorDao.search("SELECT * FROM actors WHERE to_tsvector(actor_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+        }else{
+            throw new IllegalArgumentException();
+        }
+        return actors;
     }
 
     @Override

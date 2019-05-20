@@ -88,6 +88,25 @@ public class CompanyDaoService extends setConnection implements DaoService<Compa
     }
 
     @Override
+    public List<Company> search(Integer choice) {
+        List<Company> companies;
+
+        if (choice == 1){
+            System.out.println("Enter your phase:");
+            companies = companyDao.search("SELECT * FROM companies WHERE to_tsvector(company_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine() + ")");
+        }else if (choice == 2){
+            System.out.println("Enter words:");
+            companies = companyDao.search("SELECT * FROM companies WHERE to_tsvector(company_name) @@ " +
+                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+        }else{
+            throw new IllegalArgumentException();
+        }
+
+        return companies;
+    }
+
+    @Override
     public void delete() {
         String parameter, key;
 
