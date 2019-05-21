@@ -1,4 +1,4 @@
-package model.dao;
+package runner;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,9 +6,9 @@ import java.sql.SQLException;
 public class Connection {
     private static final String USER_NAME = "grisha";
     private static final String USER_PASSWORD = "11111";
-    private static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/testdb";
+    private static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/filmStudio";
 
-    public static void setConnection(){
+    public static java.sql.Connection setConnection(){
         java.sql.Connection connection;
 
         try {
@@ -18,7 +18,7 @@ public class Connection {
         } catch (SQLException e) {
             System.out.println("Connection Failed");
             e.printStackTrace();
-            return;
+            return null;
         }
 
         if (connection != null) {
@@ -26,10 +26,6 @@ public class Connection {
         } else {
             System.out.println("Failed to make connection to database");
         }
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return connection;
     }
 }

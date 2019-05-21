@@ -1,13 +1,21 @@
 package model.dao;
 
+import runner.Connection;
+
 import java.util.List;
 
 public interface Dao<E, K> extends AutoCloseable{
-    List<E> getAll();
-    E update(E entity);
-    E getEntityById(K id);
-    void delete(K id);
+
+    List<E> readAll();
+
+    void delete(String deleteBy, K key);
+
     void create(E entity);
+
+    List<E> read(String searchBy, K key);
+
+
+    List<E> search(String phrase);
 
     @Override
     void close();

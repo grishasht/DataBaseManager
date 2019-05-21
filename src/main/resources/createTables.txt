@@ -1,0 +1,27 @@
+create table FILMS(
+    FILM_NAME varchar(40) primary key,
+    DURATION integer,
+    COMPANY_NAME varchar(40)
+);
+
+create table ACTORS(
+    ACTOR_NAME varchar(40) primary key,
+    FILM_NAME varchar(40)
+);
+
+create table COMPANIES(
+    COMPANY_NAME varchar(40) primary key,
+    COUNTRY varchar(20)
+);
+
+create table TICKETS(
+    OWNER_ID integer primary key,
+    OWNER_NAME varchar(40),
+    FILM_NAME varchar(40),
+    AGE_CATEGORY integer
+);
+
+create table SEATS(
+    SEAT_NUM integer primary key,
+    OWNER_NAME varchar(40)
+);

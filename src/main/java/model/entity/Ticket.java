@@ -4,19 +4,25 @@ import java.util.Objects;
 
 public class Ticket {
     private String filmName;
+    private String ownerName;
     private Integer ageCategory;
-    private String seats;
+
+    public Ticket(String filmName, String ownerName, Integer ageCategory) {
+        this.filmName = filmName;
+        this.ownerName = ownerName;
+        this.ageCategory = ageCategory;
+    }
 
     public void setFilmName(String filmName) {
         this.filmName = filmName;
     }
 
-    public void setAgeCategory(Integer ageCategory) {
-        this.ageCategory = ageCategory;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
-    public void setSeats(String seats) {
-        this.seats = seats;
+    public void setAgeCategory(Integer ageCategory) {
+        this.ageCategory = ageCategory;
     }
 
     public String getFilmName() {
@@ -27,16 +33,16 @@ public class Ticket {
         return ageCategory;
     }
 
-    public String getSeats() {
-        return seats;
+    public String getOwnerName() {
+        return ownerName;
     }
 
     @Override
     public String toString() {
         return "Ticket\n" +
-                "filmName: " + filmName + '\'' +
-                ", ageCategory: " + ageCategory +
-                ", seats: " + seats + '\n';
+                "OWNER: " + ownerName +
+                "  FILM: " + filmName +
+                "  AGE CATEGORY: " + ageCategory + '\n';
     }
 
     @Override
@@ -45,12 +51,12 @@ public class Ticket {
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
         return Objects.equals(filmName, ticket.filmName) &&
-                Objects.equals(ageCategory, ticket.ageCategory) &&
-                Objects.equals(seats, ticket.seats);
+                Objects.equals(ownerName, ticket.ownerName) &&
+                Objects.equals(ageCategory, ticket.ageCategory);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filmName, ageCategory, seats);
+        return Objects.hash(filmName, ownerName, ageCategory);
     }
 }

@@ -5,7 +5,13 @@ import java.util.Objects;
 public class Company {
     private String name;
     private String country;
-    private String film;
+    private Integer foundationYear;
+
+    public Company(String name, String country, Integer foundationYear) {
+        this.name = name;
+        this.country = country;
+        this.foundationYear = foundationYear;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -15,8 +21,8 @@ public class Company {
         this.country = country;
     }
 
-    public void setFilm(String film) {
-        this.film = film;
+    public void setFoundationYear(Integer foundationYear) {
+        this.foundationYear = foundationYear;
     }
 
     public String getName() {
@@ -27,16 +33,16 @@ public class Company {
         return country;
     }
 
-    public String getFilm() {
-        return film;
+    public Integer getFoundationYear() {
+        return foundationYear;
     }
 
     @Override
     public String toString() {
         return "Company\n" +
-                "name: " + name +
-                ", country: " + country +
-                ", film: " + film + '\n';
+                "NAME: " + name +
+                "  COUNTRY: " + country +
+                "  FOUNDATION: " + foundationYear + '\n';
     }
 
     @Override
@@ -46,11 +52,11 @@ public class Company {
         Company company = (Company) o;
         return Objects.equals(name, company.name) &&
                 Objects.equals(country, company.country) &&
-                Objects.equals(film, company.film);
+                Objects.equals(foundationYear, company.foundationYear);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, country, film);
+        return Objects.hash(name, country, foundationYear);
     }
 }

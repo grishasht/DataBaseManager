@@ -4,39 +4,56 @@ import java.util.Objects;
 
 public class Film {
     private String name;
-    private Integer duration;
-    private String actor;
+    private String companyName;
+    private Integer release;
+    private Boolean ar; // 3d effect (augmented reality)
+
+    public Film(String name, String companyName, Integer release, Boolean ar) {
+        this.name = name;
+        this.companyName = companyName;
+        this.release = release;
+        this.ar = ar;
+    }
+
+    public void setAr(Boolean ar) {
+        this.ar = ar;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setDuration(Integer duration) {
-        this.duration = duration;
+    public void setRelease(Integer release) {
+        this.release = release;
     }
 
-    public void setActor(String actor) {
-        this.actor = actor;
+    public Boolean getAr() {
+        return ar;
+    }
+
+    public String getCompanyName() {
+        return companyName;
     }
 
     public String getName() {
         return name;
     }
 
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public String getActor() {
-        return actor;
+    public Integer getRelease() {
+        return release;
     }
 
     @Override
     public String toString() {
         return "Film \n" +
-                "name: " + name +
-                ", duration: " + duration +
-                ", actor: " + actor + '\n';
+                "NAME: " + name +
+                "  RELEASE YEAR: " + release +
+                "  COMPANY: " + companyName +
+                "  3D: " + ar + '\n';
     }
 
     @Override
@@ -45,12 +62,8 @@ public class Film {
         if (o == null || getClass() != o.getClass()) return false;
         Film film = (Film) o;
         return Objects.equals(name, film.name) &&
-                Objects.equals(duration, film.duration) &&
-                Objects.equals(actor, film.actor);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, duration, actor);
+                Objects.equals(release, film.release) &&
+                Objects.equals(companyName, film.companyName) &&
+                Objects.equals(ar, film.ar);
     }
 }
