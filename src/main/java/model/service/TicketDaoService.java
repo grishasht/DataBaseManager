@@ -109,11 +109,11 @@ public class TicketDaoService extends setConnection implements DaoService<Ticket
         if (choice == 1){
             System.out.println("Enter your phase:");
             tickets = ticketDao.search("SELECT * FROM tickets WHERE to_tsvector(owner_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine() + ")");
+                    "to_tsquery('" + scanner.nextLine() + "')");
         }else if (choice == 2){
             System.out.println("Enter words:");
             tickets = ticketDao.search("SELECT * FROM tickets WHERE to_tsvector(owner_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+                    "to_tsquery('" + scanner.nextLine().replace(' ', '&') + "')");
         }else{
             throw new IllegalArgumentException();
         }

@@ -106,11 +106,11 @@ public class ActorDaoService extends setConnection implements DaoService<Actor> 
         if (choice == 1){
             System.out.println("Enter your phase:");
             actors = actorDao.search("SELECT * FROM actors WHERE to_tsvector(actor_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine() + ")");
+                    "to_tsquery('" + scanner.nextLine() + "')");
         }else if (choice == 2){
             System.out.println("Enter words:");
             actors = actorDao.search("SELECT * FROM actors WHERE to_tsvector(actor_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+                    "to_tsquery('" + scanner.nextLine().replace(' ', '&') + "')");
         }else{
             throw new IllegalArgumentException();
         }

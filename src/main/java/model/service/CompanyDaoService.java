@@ -94,11 +94,11 @@ public class CompanyDaoService extends setConnection implements DaoService<Compa
         if (choice == 1){
             System.out.println("Enter your phase:");
             companies = companyDao.search("SELECT * FROM companies WHERE to_tsvector(company_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine() + ")");
+                    "to_tsquery('" + scanner.nextLine() + "')");
         }else if (choice == 2){
             System.out.println("Enter words:");
             companies = companyDao.search("SELECT * FROM companies WHERE to_tsvector(company_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+                    "to_tsquery('" + scanner.nextLine().replace(' ', '&') + "')");
         }else{
             throw new IllegalArgumentException();
         }

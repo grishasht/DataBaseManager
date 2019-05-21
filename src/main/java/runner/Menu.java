@@ -25,6 +25,7 @@ public class Menu {
                 .append("2 - find in database \n")
                 .append("3 - update in database\n")
                 .append("4 - delete from database\n")
+                .append("5 - text search\n")
                 .append("0 - exit\n")
                 .append("Your choice:  "));
         while ((choice = scanner.nextInt()) != 0) {
@@ -41,11 +42,49 @@ public class Menu {
                 case 4:
                     delete();
                     break;
+                case 5:
+                    search();
+                    break;
                 default:
                     throw new IllegalArgumentException("Choose element of range [0; 4]");
             }
             System.out.println("Your choice: ");
         }
+    }
+
+    private static void search() {
+        System.out.println("1 - phrase, 2 - all words");
+        Integer choice = scanner.nextInt();
+        switch (choice){
+            case 1: searchImpl(1); break;
+            case 2: searchImpl(2); break;
+            default:
+                throw new IllegalArgumentException("Choose element of range [1; 2]");
+        }
+    }
+
+    private static void searchImpl(Integer i) {
+        System.out.println(tableMenu);
+        Integer choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                filmDaoService.search(i).forEach(System.out::println);
+                break;
+            case 2:
+                actorDaoService.search(i).forEach(System.out::println);
+                break;
+            case 3:
+                companyDaoService.search(i).forEach(System.out::println);
+                break;
+            case 4:
+                ticketDaoService.search(i).forEach(System.out::println);
+                break;
+            case 5:
+                seatDaoService.search(i).forEach(System.out::println);
+                break;
+            default:
+                throw new IllegalArgumentException("Choose element of range [1; 5]");
+        }            
     }
 
     private static void inputRandomizeData() {

@@ -116,12 +116,14 @@ public class FilmDaoService extends setConnection implements DaoService<Film> {
         List<Film> films;
         if (choice == 1){
             System.out.println("Enter your phase:");
+            String nextLine = scanner.nextLine();
             films = filmDao.search("SELECT * FROM films WHERE to_tsvector(film_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine() + ")");
+                    "to_tsquery('" + nextLine + "')");
         }else if (choice == 2){
             System.out.println("Enter words:");
+            String replace = scanner.nextLine().replace(' ', '&');
             films = filmDao.search("SELECT * FROM films WHERE to_tsvector(film_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+                    "to_tsquery('" + replace + "')");
         }else{
             throw new IllegalArgumentException();
         }

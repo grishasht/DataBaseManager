@@ -108,12 +108,12 @@ public class SeatDaoService extends setConnection implements DaoService<Seat> {
 
         if (choice == 1){
             System.out.println("Enter your phase:");
-            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector(owner_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine() + ")");
+            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector("+ scanner.nextLine() +") @@ " +
+                    "to_tsquery(owner_name)");
         }else if (choice == 2){
             System.out.println("Enter words:");
-            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector(owner_name) @@ " +
-                    "to_tsquery(" + scanner.nextLine().replace(' ', '&') + ")");
+            seats = seatDao.search("SELECT * FROM seats WHERE to_tsvector(" + scanner.nextLine().replace(' ', '&') + ") @@ " +
+                    "to_tsquery(owner_name)");
         }else{
             throw new IllegalArgumentException();
         }
